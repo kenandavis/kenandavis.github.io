@@ -1,0 +1,21 @@
+{
+  "name": "kenandavis.github.io",
+  "homepage": "https://kenandavis.github.io",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "Kenan Davis"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "handlebars": "^4.0.11"
+  }
+}
