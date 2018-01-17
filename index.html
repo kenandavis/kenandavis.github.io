@@ -18,8 +18,76 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		KENAN DAVIS
+		<!-- the content section is empty as we will fill it via javascript and templates -->
+		<div id="content"  class="container-fluid"  role="main"></div>
 
-		<script src=""></script>
+		<div class="container">
+		
+
+		<div class="row section">
+		    <div class="col-xs-12 col-md-6"> 
+		        <p id="">Kenan Davis</p>
+		    </div>
+
+		    <div class="col-xs-12 col-md-6 papers">
+		        <p class="paper">THE NEW YORK TIMES</p>
+
+		        <ul class="list-unstyled">
+		        
+		        	<li>This is a healine for a Story</li>
+		        
+		        </ul>
+		       
+		    </div> <!-- / col -->
+	    </div> <!-- / row -->
+		</div> <!-- / container -->
+
+		<!-- portfolio-template -->
+		<script id="portfolio-template" type="text/x-handlebars-template">
+			<div class="row section">
+			    <div class="col-xs-12 col-md-6"> 
+			        <p id="paper">{{paper}}</p>
+			    </div>
+
+				<div class="col-xs-12 col-md-6 papers"> 
+					<ul class="list-unstyled">
+					{{#each stories}}
+				    	<li>{{headline}}</li>
+					{{/each}}
+					</ul>
+				</div> <!-- / col -->
+
+				
+
+			</div> <!-- / row -->
+		</script>
+
+		<script>
+			// PROCESS DATA
+
+
+			// template variables
+			var portfolio_template;
+
+			// data
+			var portfolio_data = portfolioData;
+
+
+			// a helper function that instantiates a template
+			// and displays the results in the content div
+			function showTemplate(template, data){
+				var html = template(data);
+				$('#content').html(html);
+			}
+
+			$(document).ready(function(){
+				var source = $("#portfolio-template").html();
+				portfolio_template = Handlebars.compile(source);
+
+				// show portfolio page
+				showTemplate(portfolio_template, portfolio_data);
+			});
+
+		</script>
 	</body>
 </html>
