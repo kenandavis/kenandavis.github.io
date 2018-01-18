@@ -52,3 +52,12 @@ ul {
 ul li {
 	padding: 0px 5px 5px;
 }
+
+a {
+	color: #fff;
+}
+
+a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
