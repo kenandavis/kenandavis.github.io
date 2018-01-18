@@ -9,9 +9,10 @@
 		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="bower_components/handlebars/handlebars.min.js"></script>
+		<script src="d3-collection.v1.min.js"></script>
 
 		<!-- custom scripts and data -->
-		<script src="data/porfolio.js"> </script>
+		<script src="data/portfolio.js"> </script>
 
 		<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
@@ -19,42 +20,27 @@
 	</head>
 	<body>
 		<!-- the content section is empty as we will fill it via javascript and templates -->
-		<div id="content"  class="container-fluid"  role="main"></div>
+		<div id="content"  class="container-fluid container"  role="main"></div>
 
-		<div class="container">
 		
-
-		<div class="row section">
-		    <div class="col-xs-12 col-md-6"> 
-		        <p id="">Kenan Davis</p>
-		    </div>
-
-		    <div class="col-xs-12 col-md-6 papers">
-		        <p class="paper">THE NEW YORK TIMES</p>
-
-		        <ul class="list-unstyled">
-		        
-		        	<li>This is a healine for a Story</li>
-		        
-		        </ul>
-		       
-		    </div> <!-- / col -->
-	    </div> <!-- / row -->
-		</div> <!-- / container -->
 
 		<!-- portfolio-template -->
 		<script id="portfolio-template" type="text/x-handlebars-template">
 			<div class="row section">
-			    <div class="col-xs-12 col-md-6"> 
-			        <p id="paper">{{paper}}</p>
+				<div class="col-xs-12 col-md-6"> 
+			        <p id="">Kenan Davis</p>
 			    </div>
 
 				<div class="col-xs-12 col-md-6 papers"> 
-					<ul class="list-unstyled">
-					{{#each stories}}
-				    	<li>{{headline}}</li>
+					{{#each portfolioByPaper}}
+						<p class="paper">{{key}}</p>
+
+						<ul class="list-unstyled">
+						{{#each values}}
+					    	<li><a href="{{link}}">{{headline}}<a/></li>
+						{{/each}}
+						</ul>
 					{{/each}}
-					</ul>
 				</div> <!-- / col -->
 
 				
@@ -63,14 +49,23 @@
 		</script>
 
 		<script>
-			// PROCESS DATA
-
 
 			// template variables
 			var portfolio_template;
 
 			// data
 			var portfolio_data = portfolioData;
+
+			// PROCESS DATA
+			var portfolioByPaper = d3.nest()
+			  .key(function(d) { return d.paper; })
+			  .entries(portfolio_data);
+
+			var portfolioByPaper = {
+				"portfolioByPaper": portfolioByPaper
+			}
+
+			console.log(portfolioByPaper);
 
 
 			// a helper function that instantiates a template
@@ -85,7 +80,7 @@
 				portfolio_template = Handlebars.compile(source);
 
 				// show portfolio page
-				showTemplate(portfolio_template, portfolio_data);
+				showTemplate(portfolio_template, portfolioByPaper);
 			});
 
 		</script>
