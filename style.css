@@ -191,6 +191,11 @@ a {
     transition: color 0.2s, border-color 0.2s;
 }
 
+a:visited {
+	color: #999;
+	text-decoration: none;
+}
+
 a:hover {
 	color: #fff;
 	text-decoration: none;
