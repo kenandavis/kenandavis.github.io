@@ -28,7 +28,7 @@
 		<script id="portfolio-template" type="text/x-handlebars-template">
 			<div class="row section">
 				<div class="col-xs-12 col-md-6"> 
-			        <p id="">Kenan Davis</p>
+			        <p class="name">Kenan Davis</p>
 			    </div>
 
 				<div class="col-xs-12 col-md-6 papers"> 
@@ -37,7 +37,12 @@
 
 						<ul class="list-unstyled">
 						{{#each values}}
-					    	<li><a href="{{link}}">{{headline}}<a/></li>
+					    	<li>
+					    		<p>
+					    			<a href="{{link}}">{{headline}}<a/>
+					    			<span class="date">{{date}}</span>
+					    		</p>
+					    	</li>
 						{{/each}}
 						</ul>
 					{{/each}}
