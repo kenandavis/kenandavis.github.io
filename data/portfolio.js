@@ -26,5 +26,5 @@ var portfolioData = [
 {"paper":"The Guardian","date":"Jan. 31, 2014","headline":"Why Super Bowl XLVIII is the best match-up in NFL history","link":"https://www.theguardian.com/sport/interactive/2014/jan/31/super-bowl-nfl-offense-defense-interactive"},
 {"paper":"The Guardian","date":"Dec. 18, 2013","headline":"Who has the hardest World Cup 2014 draw?","link":"https://www.theguardian.com/football/interactive/2013/dec/18/world-cup-2014-draw-strength-of-schedule"},
 {"paper":"The Guardian","date":"Nov. 10, 2013","headline":"Peyton Manning: throwing for the record books","link":"https://www.theguardian.com/sport/interactive/2013/nov/10/peyton-manning-quarterback-record-touchdowns-interactive"},
-{"paper":"The Guardian","date":"","headline":"NSA Files: Decoded","link":"https://www.theguardian.com/world/interactive/2013/nov/01/snowden-nsa-files-surveillance-revelations-decoded"}
+{"paper":"The Guardian","date":"Nov. 1, 2013","headline":"NSA Files: Decoded","link":"https://www.theguardian.com/world/interactive/2013/nov/01/snowden-nsa-files-surveillance-revelations-decoded"}
 ];
